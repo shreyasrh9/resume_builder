@@ -1,3 +1,36 @@
 .container{
     margin-top: 1%
 }
+
+.contentHeading{
+    font-size: 28px;
+    font-weight: bold;
+    border-bottom: 1px solid #479099;
+}
+
+.subContentHeading{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.contentDuration{
+    color: #479099
+}
+
+.contentLocation{
+    float: right;
+    color: #479099
+}
+
+.skillContent{
+    background-color: #479099;
+    color: white;
+    padding: 5px 30px;
+    border-radius: 10px;
+    margin-top: 1%;
+    margin-left: 5px
+}
+
+.projectContentHeading{
+    font-weight: bold;
+}
