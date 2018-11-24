@@ -41,7 +41,7 @@ const resumeHeader = () => {
                     <span className="skillContent">Java/J2EE</span>
                     <span className="skillContent">Python</span>
                     <span className="skillContent">ReactJS</span>
-                    
+
                     <br />
                     <br />
                     <span className="skillContent">Redux</span>
@@ -75,21 +75,19 @@ const resumeHeader = () => {
 
                 </Col>
             </Row>
-            <br/>
+            <br />
 
             <Row style={{ marginTop: '1%' }}>
                 <Col>
+                    <h2 className="contentHeading">Overview</h2>
+                    <p>A senior software engineer involved in development of multiple cutting edge solutions on multiple environments across the enterprise. Communication of project vision, team based planning, establishing development processes and standards. Development of a multi-year solutions focusing on implementation of massive corporate IT solutions and also train the fellow project members and following the best methodologies which results in bug free and sustainable software solutions.</p>
+                    <br />
+                    <br />
                     <h2 className="contentHeading">EDUCATION</h2>
                     <h3 className="subContentHeading">Bachelor Of Engineering</h3>
                     <h4>Global Academy Of Technology</h4>
-                    
+
                     <span className="contentDuration">2008 - 2012</span><span className="contentLocation">75%</span>
-                    <br />
-                    <br />
-                    <h3 className="subContentHeading">Software Engineer</h3>
-                    <span className="contentDuration">03/2013 - 10/2015</span><span className="contentLocation">Bengaluru</span>
-
-
 
 
                 </Col>
@@ -102,29 +100,29 @@ const resumeHeader = () => {
                     <br />
                     <br />
                     <h2 className="contentHeading">OTHER INFO</h2>
-                    <span className="projectContentHeading">LinkedIn</span><br/>
+                    <span className="projectContentHeading">LinkedIn</span><br />
                     <span className="contentDuration">https://www.linkedin.com/in/shreyas-r-h-8a74b8a2/</span>
 
                     <br />
                     <br />
 
-                    <span className="projectContentHeading">Github</span><br/>
+                    <span className="projectContentHeading">Github</span><br />
                     <span className="contentDuration">https://github.com/shreyasrh9</span>
 
                     <br />
                     <br />
 
-                    <span className="projectContentHeading">Hacker Earth</span><br/>
+                    <span className="projectContentHeading">Hacker Earth</span><br />
                     <span className="contentDuration">https://www.hackerearth.com/@shreyas.rh151</span>
 
 
 
                 </Col>
             </Row>
-            <br/>
+            <br />
             <Row>
                 <Col>
-                <h2 className="contentHeading">PROJECT(S)</h2>
+                    <h2 className="contentHeading">PROJECT(S)</h2>
                     <h3 className="subContentHeading">QUERENT BI</h3>
                     <span className="projectContentHeading">- Software Used</span><p>Java/J2EE 1.8, Spring Boot, MySQL, OpenID, Sentry, log4j, ReactJs, Ajax, CSS, Bootstrap, Data Structures & Algorithms, Maven, Tomcat 8, Github</p>
                     <span className="projectContentHeading">- Features</span><p>Platform to access Tableau Dashboards based on user mappings</p>
@@ -134,8 +132,8 @@ const resumeHeader = () => {
                     <br />
 
                     <h3 className="subContentHeading">Chatbot</h3>
-                    <span className="projectContentHeading">- Software Used</span><p>Python, Flask, Sentry, log4j, ReactJs, Redux observable, CSS, Bootstrap, Data Structures & Algorithms, Nginx, Dialogflow, Github</p><br/>
-                    <span className="projectContentHeading">- Features</span><p>A chatbot which answers hr related questions</p>
+                    <span className="projectContentHeading">- Software Used</span><p>Python, Flask, Sentry, log4j, ReactJs, Redux observable, CSS, Bootstrap, Data Structures & Algorithms, Nginx, Dialogflow, Github</p><br />
+                    <span className="projectContentHeading">- Features</span><p>A chatbot which answers HR related questions</p>
                     <span className="projectContentHeading">- Roles & Responsibilities</span><p>End to End development for multiple modules, Code reviews. Built the rest client using reactjs and rest API using python, flask. Setting up questions in dialogflow. Dockerizing the entire application</p>
 
                     <br />
@@ -143,7 +141,7 @@ const resumeHeader = () => {
 
                     <h3 className="subContentHeading">Document Search</h3>
                     <span className="projectContentHeading">- Software Used</span><p>Solr, Python, Flask, Sentry, log4j, ReactJs, Redux observable, CSS, Bootstrap, Data Structures & Algorithms, Nginx, Github</p>
-                    <span className="projectContentHeading">- Features</span><p>An application which helps the hosptal staff to search the autopsy documents based on the search keyword. Image documents are extracted using OCR and the extracted data is indexed in Solr. The document of searched keyword is fetched from Solr.</p>
+                    <span className="projectContentHeading">- Features</span><p>An application which helps the hospital staff to search the autopsy documents based on the search keyword. Image documents are extracted using OCR and the extracted data is indexed in Solr. The document of searched keyword is fetched from Solr.</p>
                     <span className="projectContentHeading">- Roles & Responsibilities</span><p>End to End development for multiple modules, Code reviews. Built the rest client using reactjs and rest API using python, flask. Setting up Solr and indexing the documents. Dockerizing the entire application.</p>
 
                     <br />
