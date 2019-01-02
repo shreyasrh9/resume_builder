@@ -10,8 +10,8 @@
   "author": "pinglinh",
   "license": "ISC",
   "devDependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.1.0",
     "@babel/core": "^7.1.0",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
     "babel-loader": "^8.0.0-beta.6",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
@@ -20,7 +20,7 @@
     "style-loader": "^0.23.0",
     "webpack": "^4.19.1",
     "webpack-cli": "^3.1.1",
-    "webpack-dev-server": "^3.1.8"
+    "webpack-dev-server": "^3.1.14"
   },
   "dependencies": {
     "@babel/preset-env": "^7.1.0",

@@ -1,14 +1,24 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import ResumeHeader from "./components/ResumeHeader/ResumeHeader";
 
 class App extends Component {
-    render(){
-        return (
-            <div className="App">
-              <h1>Test</h1>
-            </div>
-          );
-    }
+  componentWillMount() {
+    console.log("Component is about to get mounted");
+  }
+
+  componentDidMount() {
+    console.log("Component got mounted");
+  }
+
+  render() {
+    console.log("Mounting component now");
+    return (
+      <div>
+        <ResumeHeader />
+      </div>
+    );
+  }
 }
 
 export default App;

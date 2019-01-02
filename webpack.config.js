@@ -5,7 +5,13 @@ const htmlWebpackPlugin = new HtmlWebPackPlugin({
   filename: "./index.html"
 });
 
+const path = require("path");
+
 module.exports = {
+  output: {
+    path: path.resolve("dist"),
+    filename: "resumebuilder.js"
+  },
   module: {
     rules: [
       {
@@ -16,22 +22,12 @@ module.exports = {
         }
       },
       {
+        test: /\.(jpe?g|png|gif|woff|woff2|eot|ttf|svg)(\?[a-z0-9=.]+)?$/,
+        loader: "url-loader?limit=100000"
+      },
+      {
         test: /\.css$/,
-        use: [
-          {
-            loader: "style-loader"
-          },
-          {
-            loader: "css-loader",
-            options: {
-              modules: true,
-              importLoaders: 1,
-              localIdentName: "[name]_[local]_[hash:base64]",
-              sourceMap: true,
-              minimize: true
-            }
-          }
-        ]
+        use: ["style-loader", "css-loader"]
       }
     ]
   },
