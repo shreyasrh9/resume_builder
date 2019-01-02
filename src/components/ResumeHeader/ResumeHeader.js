@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Row, Col } from "reactstrap";
+import { Container, Row, Col, FormGroup, Label, Input } from "reactstrap";
 import "./ResumeHeader.css";
 import MyPhoto from "./MyPhoto/MyPhoto";
 import MyWorkIntro from "./MyWorkIntro/MyWorkIntro";
@@ -8,12 +8,13 @@ import InputElementInfo from "./InputElementInfo/InputElementInfo";
 
 class ResumeHeader extends Component {
   state = {
-    name: "Your name",
-    designation: "position @ company",
+    name: "Name",
+    designation: "Software Engineer @ Google",
     email: "example@example.com",
-    phone: "+(country code)(mob no)",
-    location: "xyz",
-    totalExperience: "(no of years)+ years of experience as {xyz}"
+    phone: "+919999999999",
+    location: "Bengaluru",
+    totalExperience: "2 years experience",
+    role: "Full-stack developer"
   };
 
   setProfileName = event => {
@@ -27,55 +28,82 @@ class ResumeHeader extends Component {
     return (
       <div>
         <div className="split left">
-          <Container className="container" />
-          Note : See right side of the page for any formatting examples
-          <Container className="container" />
-          Enter Personal Details
-          <InputElementInfo heading="Name" changed={this.setProfileName} />
-          <InputElementInfo
-            heading="Designation"
-            value={this.state.designation}
-            changed={event => {
-              this.setState({
-                designation: event.target.value
-              });
-            }}
-          />
-          <InputElementInfo
-            heading="Email address"
-            changed={event => {
-              this.setState({
-                email: event.target.value
-              });
-            }}
-          />
-          <InputElementInfo
-            heading="Contact number"
-            changed={event => {
-              this.setState({
-                phone: event.target.value
-              });
-            }}
-          />
-          <InputElementInfo
-            heading="Location"
-            changed={event => {
-              this.setState({
-                location: event.target.value
-              });
-            }}
-          />
-          <Container className="container" />
-          Enter Your Work Experience
-          <InputElementInfo
-            heading="Overall Experience"
-            changed={event => {
-              this.setState({
-                totalExperience: event.target.value
-              });
-            }}
-          />
+          <Container className="container" >
+            <FormGroup>
+              <Label>Details :</Label>
+            </FormGroup>
+
+            <Row>
+              <Col xs="6"><FormGroup>
+                <Label>Name</Label>
+                <Input type="text" onChange={this.setProfileName} />
+              </FormGroup></Col>
+              <Col xs="6"><FormGroup>
+                <Label>Designation</Label>
+                <Input type="text" onChange={event => {
+                  this.setState({
+                    designation: event.target.value
+                  });
+                }} />
+              </FormGroup></Col>
+            </Row>
+
+            <Row>
+              <Col xs="6"><FormGroup>
+                <Label>Email</Label>
+                <Input type="email" onChange={event => {
+                  this.setState({
+                    email: event.target.value
+                  });
+                }} />
+              </FormGroup></Col>
+              <Col xs="6"><FormGroup>
+                <Label>Contact number</Label>
+                <Input type="text" onChange={event => {
+                  this.setState({
+                    phone: event.target.value
+                  });
+                }} />
+              </FormGroup></Col>
+            </Row>
+
+            <Row>
+              <Col xs="6"><FormGroup>
+                <Label>Location</Label>
+                <Input type="text" onChange={event => {
+                  this.setState({
+                    location: event.target.value
+                  });
+                }} />
+              </FormGroup></Col>
+              <Col xs="6"><FormGroup>
+                <Label>Experience</Label>
+                <Row>
+                  <Col xs="4">
+                    <Input type="number" onChange={event => {
+                      this.setState({
+                        totalExperience: event.target.value
+                      });
+                    }} /></Col>
+                  <Col xs="2">
+                    as a
+              </Col>
+                  <Col xs="6">
+                    <Input type="text" onChange={event => {
+                      this.setState({
+                        role: event.target.value
+                      });
+                    }} />
+                  </Col>
+                </Row>
+              </FormGroup>
+
+              </Col>
+            </Row>
+
+          </Container>
         </div>
+
         <div className="split right">
           <Container className="container">
             <Row>
@@ -101,7 +129,7 @@ class ResumeHeader extends Component {
             </Row>
             <Row style={{ marginTop: "1%" }}>
               <Col>
-                <span>{this.state.totalExperience}</span>
+                <span>{this.state.totalExperience}</span><span> as a </span><span>{this.state.role}</span>
               </Col>
             </Row>
 
