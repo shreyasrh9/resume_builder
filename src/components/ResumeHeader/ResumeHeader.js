@@ -28,79 +28,106 @@ class ResumeHeader extends Component {
     return (
       <div>
         <div className="split left">
-          <Container className="container" >
+          <Container className="container">
             <FormGroup>
               <Label>Details :</Label>
             </FormGroup>
 
             <Row>
-              <Col xs="6"><FormGroup>
-                <Label>Name</Label>
-                <Input type="text" onChange={this.setProfileName} />
-              </FormGroup></Col>
-              <Col xs="6"><FormGroup>
-                <Label>Designation</Label>
-                <Input type="text" onChange={event => {
-                  this.setState({
-                    designation: event.target.value
-                  });
-                }} />
-              </FormGroup></Col>
-            </Row>
-
-            <Row>
-              <Col xs="6"><FormGroup>
-                <Label>Email</Label>
-                <Input type="email" onChange={event => {
-                  this.setState({
-                    email: event.target.value
-                  });
-                }} />
-              </FormGroup></Col>
-              <Col xs="6"><FormGroup>
-                <Label>Contact number</Label>
-                <Input type="text" onChange={event => {
-                  this.setState({
-                    phone: event.target.value
-                  });
-                }} />
-              </FormGroup></Col>
-            </Row>
-
-            <Row>
-              <Col xs="6"><FormGroup>
-                <Label>Location</Label>
-                <Input type="text" onChange={event => {
-                  this.setState({
-                    location: event.target.value
-                  });
-                }} />
-              </FormGroup></Col>
-              <Col xs="6"><FormGroup>
-                <Label>Experience</Label>
-                <Row>
-                  <Col xs="4">
-                    <Input type="number" onChange={event => {
-                      this.setState({
-                        totalExperience: event.target.value
-                      });
-                    }} /></Col>
-                  <Col xs="2">
-                    as a
+              <Col xs="6">
+                <FormGroup>
+                  <Label>Name</Label>
+                  <Input type="text" onChange={this.setProfileName} />
+                </FormGroup>
               </Col>
-                  <Col xs="6">
-                    <Input type="text" onChange={event => {
+              <Col xs="6">
+                <FormGroup>
+                  <Label>Designation</Label>
+                  <Input
+                    type="text"
+                    onChange={event => {
                       this.setState({
-                        role: event.target.value
+                        designation: event.target.value
                       });
-                    }} />
-                  </Col>
-                </Row>
-              </FormGroup>
-
+                    }}
+                  />
+                </FormGroup>
               </Col>
             </Row>
 
+            <Row>
+              <Col xs="6">
+                <FormGroup>
+                  <Label>Email</Label>
+                  <Input
+                    type="email"
+                    onChange={event => {
+                      this.setState({
+                        email: event.target.value
+                      });
+                    }}
+                  />
+                </FormGroup>
+              </Col>
+              <Col xs="6">
+                <FormGroup>
+                  <Label>Contact number</Label>
+                  <Input
+                    type="text"
+                    onChange={event => {
+                      this.setState({
+                        phone: event.target.value
+                      });
+                    }}
+                  />
+                </FormGroup>
+              </Col>
+            </Row>
+
+            <Row>
+              <Col xs="6">
+                <FormGroup>
+                  <Label>Location</Label>
+                  <Input
+                    type="text"
+                    onChange={event => {
+                      this.setState({
+                        location: event.target.value
+                      });
+                    }}
+                  />
+                </FormGroup>
+              </Col>
+              <Col xs="6">
+                <FormGroup>
+                  <Label>Experience</Label>
+                  <Row>
+                    <Col xs="4">
+                      <Input
+                        type="number"
+                        onChange={event => {
+                          this.setState({
+                            totalExperience:
+                              event.target.value + " years of experience"
+                          });
+                        }}
+                      />
+                    </Col>
+                    <Col xs="2">as a</Col>
+                    <Col xs="6">
+                      <Input
+                        type="text"
+                        onChange={event => {
+                          this.setState({
+                            role: event.target.value
+                          });
+                        }}
+                      />
+                    </Col>
+                  </Row>
+                </FormGroup>
+              </Col>
+            </Row>
           </Container>
         </div>
 
@@ -129,7 +156,9 @@ class ResumeHeader extends Component {
             </Row>
             <Row style={{ marginTop: "1%" }}>
               <Col>
-                <span>{this.state.totalExperience}</span><span> as a </span><span>{this.state.role}</span>
+                <span>{this.state.totalExperience}</span>
+                <span> as a </span>
+                <span>{this.state.role}</span>
               </Col>
             </Row>
 
