@@ -25,16 +25,15 @@ class ResumeHeader extends Component {
     totalExperience: "2 years experience",
     role: "Full-stack developer",
     random: null,
+    indRole: null,
+    indDuration: null,
+    indCompany: null,
+    haveExpDet: false,
     individualExperience: [
       {
         role: "Senior Software Engineer",
         duration: "02/2015 - Present",
         company: "Practo"
-      },
-      {
-        role: "Software Engineer",
-        duration: "03/2013 - 10/2015",
-        company: "Infosys"
       }
     ],
     skills: ["Java/J2EE", "Python", "ReactJS", "Redux"]
@@ -48,9 +47,31 @@ class ResumeHeader extends Component {
   };
 
   addExperience = event => {
-    console.log("entered");
-    console.log(event.target.value);
-    this.setState({ random: event.target.value });
+    let expArray;
+    if (this.state.haveExpDet) {
+      expArray = [...this.state.individualExperience];
+    } else {
+      expArray = [];
+    }
+
+    const exp = { ...expArray[0] };
+    if (
+      !(
+        this.state.indRole === null ||
+        this.state.indDuration === null ||
+        this.state.indCompany === null
+      )
+    ) {
+      this.setState({ haveExpDet: true });
+      exp.role = this.state.indRole;
+      exp.duration = this.state.indDuration;
+      exp.company = this.state.indCompany;
+      expArray.push(exp);
+      this.setState({ individualExperience: expArray });
+      this.setState({ indRole: null });
+      this.setState({ indDuration: null });
+      this.setState({ indCompany: null });
+    }
   };
 
   renderSkills = () => {
@@ -203,24 +224,49 @@ class ResumeHeader extends Component {
                 <Col md={4}>
                   <FormGroup>
                     <Label>Role</Label>
-                    <Input type="text" id="role" />
+                    <Input
+                      type="text"
+                      id="role"
+                      value={this.state.indRole}
+                      onChange={event => {
+                        this.setState({
+                          indRole: event.target.value
+                        });
+                      }}
+                    />
                   </FormGroup>
                 </Col>
                 <Col md={4}>
                   <FormGroup>
                     <Label>Duration</Label>
-                    <Input type="text" id="duration" />
+                    <Input
+                      type="text"
+                      id="duration"
+                      onChange={event => {
+                        this.setState({
+                          indDuration: event.target.value
+                        });
+                      }}
+                    />
                   </FormGroup>
                 </Col>
                 <Col md={4}>
                   <FormGroup>
                     <Label>Company</Label>
-                    <Input type="text" id="company" />
+                    <Input
+                      type="text"
+                      id="company"
+                      onChange={event => {
+                        this.setState({
+                          indCompany: event.target.value
+                        });
+                      }}
+                    />
                   </FormGroup>
                 </Col>
               </Row>
               <Col sm={2}>
-                <Input type="submit" value="Submit" />
+                <Button onClick={this.addExperience}>Add Experience </Button>
               </Col>
             </Form>
           </Container>
@@ -269,15 +315,6 @@ class ResumeHeader extends Component {
                     <br />
                   </div>
                 ))}
-                {/* <h2 className="contentHeading">WORK EXPERIENCE</h2>
-                <h3 className="subContentHeading">Senior Software Engineer</h3>
-                <span className="contentDuration">02/2015 - Present</span>
-                <span className="contentLocation">Bengaluru</span>
-                <br />
-                <br />
-                <h3 className="subContentHeading">Software Engineer</h3>
-                <span className="contentDuration">03/2013 - 10/2015</span>
-                <span className="contentLocation">Bengaluru</span> */}
               </Col>
               <Col>
                 <h2 className="contentHeading">SKILLS</h2>
