@@ -1,5 +1,14 @@
 import React, { Component } from "react";
-import { Container, Row, Col, FormGroup, Label, Input } from "reactstrap";
+import {
+  Container,
+  Row,
+  Col,
+  FormGroup,
+  Label,
+  Input,
+  Form,
+  Button
+} from "reactstrap";
 import "./ResumeHeader.css";
 import MyPhoto from "./MyPhoto/MyPhoto";
 import MyWorkIntro from "./MyWorkIntro/MyWorkIntro";
@@ -14,7 +23,21 @@ class ResumeHeader extends Component {
     phone: "+919999999999",
     location: "Bengaluru",
     totalExperience: "2 years experience",
-    role: "Full-stack developer"
+    role: "Full-stack developer",
+    random: null,
+    individualExperience: [
+      {
+        role: "Senior Software Engineer",
+        duration: "02/2015 - Present",
+        company: "Practo"
+      },
+      {
+        role: "Software Engineer",
+        duration: "03/2013 - 10/2015",
+        company: "Infosys"
+      }
+    ],
+    skills: ["Java/J2EE", "Python", "ReactJS", "Redux"]
   };
 
   setProfileName = event => {
@@ -24,7 +47,47 @@ class ResumeHeader extends Component {
     });
   };
 
+  addExperience = event => {
+    console.log("entered");
+    console.log(event.target.value);
+    this.setState({ random: event.target.value });
+  };
+
+  renderSkills = () => {
+    const chunkSize = 3;
+    console.log("Entered renderskills");
+    let a = this.state.skills.reduce(
+      (acc, item, idx) => {
+        let group = acc.pop();
+        if (group.length == chunkSize) {
+          acc.push(group);
+          group = [];
+        }
+        group.push(item);
+        acc.push(group);
+        return acc;
+      },
+      [[]]
+    );
+
+    // there is some problem here while rendering
+    return a.map(skill => {
+      console.log("skill: " + skill);
+      return (
+        <div>
+          {skill.map(i => {
+            // console.log("i : " + i);
+            <span className="skillContent">{i}</span>;
+          })}
+          <br />
+          <br />
+        </div>
+      );
+    });
+  };
+
   render() {
+    console.log(this.state.random);
     return (
       <div>
         <div className="split left">
@@ -61,6 +124,7 @@ class ResumeHeader extends Component {
                   <Label>Email</Label>
                   <Input
                     type="email"
+                    placeholder="Ex : example@example.com"
                     onChange={event => {
                       this.setState({
                         email: event.target.value
@@ -74,6 +138,7 @@ class ResumeHeader extends Component {
                   <Label>Contact number</Label>
                   <Input
                     type="text"
+                    placeholder="Ex : +91999999999"
                     onChange={event => {
                       this.setState({
                         phone: event.target.value
@@ -129,6 +194,36 @@ class ResumeHeader extends Component {
               </Col>
             </Row>
           </Container>
+          <Container className="container">
+            <FormGroup>
+              <Label>Individual Experiences :</Label>
+            </FormGroup>
+            <Form onSubmit={this.addExperience}>
+              <Row form>
+                <Col md={4}>
+                  <FormGroup>
+                    <Label>Role</Label>
+                    <Input type="text" id="role" />
+                  </FormGroup>
+                </Col>
+                <Col md={4}>
+                  <FormGroup>
+                    <Label>Duration</Label>
+                    <Input type="text" id="duration" />
+                  </FormGroup>
+                </Col>
+                <Col md={4}>
+                  <FormGroup>
+                    <Label>Company</Label>
+                    <Input type="text" id="company" />
+                  </FormGroup>
+                </Col>
+              </Row>
+              <Col sm={2}>
+                <Input type="submit" value="Submit" />
+              </Col>
+            </Form>
+          </Container>
         </div>
 
         <div className="split right">
@@ -165,6 +260,16 @@ class ResumeHeader extends Component {
             <Row style={{ marginTop: "1%" }}>
               <Col>
                 <h2 className="contentHeading">WORK EXPERIENCE</h2>
+                {this.state.individualExperience.map(d => (
+                  <div>
+                    <h3 className="subContentHeading">{d.role}</h3>
+                    <span className="contentDuration">{d.duration}</span>
+                    <span className="contentLocation">{d.company}</span>
+                    <br />
+                    <br />
+                  </div>
+                ))}
+                {/* <h2 className="contentHeading">WORK EXPERIENCE</h2>
                 <h3 className="subContentHeading">Senior Software Engineer</h3>
                 <span className="contentDuration">02/2015 - Present</span>
                 <span className="contentLocation">Bengaluru</span>
@@ -172,11 +277,12 @@ class ResumeHeader extends Component {
                 <br />
                 <h3 className="subContentHeading">Software Engineer</h3>
                 <span className="contentDuration">03/2013 - 10/2015</span>
-                <span className="contentLocation">Bengaluru</span>
+                <span className="contentLocation">Bengaluru</span> */}
               </Col>
               <Col>
                 <h2 className="contentHeading">SKILLS</h2>
-                <span className="skillContent">Java/J2EE</span>
+                {this.renderSkills()}
+                {/* <span className="skillContent">Java/J2EE</span>
                 <span className="skillContent">Python</span>
                 <span className="skillContent">ReactJS</span>
 
@@ -209,7 +315,7 @@ class ResumeHeader extends Component {
                 <span className="skillContent">Docker</span>
                 <span className="skillContent">Nginx</span>
                 <span className="skillContent">Tomcat</span>
-                <span className="skillContent">Solr</span>
+                <span className="skillContent">Solr</span> */}
               </Col>
             </Row>
             <br />
