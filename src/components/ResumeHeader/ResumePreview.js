@@ -10,7 +10,7 @@ const resumePreview = props => {
     <div>
       <Container className="container">
         <Row>
-          <Col xs="3">
+          <Col xs="2">
             <MyPhoto
               source="https://res.cloudinary.com/shreyas/image/upload/v1447835724/_20150603_122529_a3k9rn.jpg"
               alt="Profile Picture"
