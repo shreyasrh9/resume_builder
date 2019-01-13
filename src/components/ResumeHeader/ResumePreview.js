@@ -48,44 +48,10 @@ const resumePreview = props => {
               </div>
             ))}
           </Col>
-          {/* <Col>
-        <h2 className="contentHeading">SKILLS</h2>
-        {this.renderSkills()} */}
-          {/* <span className="skillContent">Java/J2EE</span>
-                <span className="skillContent">Python</span>
-                <span className="skillContent">ReactJS</span>
-
-                <br />
-                <br />
-                <span className="skillContent">Redux</span>
-                <span className="skillContent">Data Structures</span>
-                <span className="skillContent">Microservices</span>
-                <br />
-                <br />
-                <span className="skillContent">RESTful WebServices</span>
-                <span className="skillContent">Struts2</span>
-                <br />
-                <br />
-                <span className="skillContent">Spring/Spring Boot</span>
-                <span className="skillContent">JPA</span>
-                <span className="skillContent">HTML</span>
-                <br />
-                <br />
-                <span className="skillContent">CSS</span>
-                <span className="skillContent">Javascript</span>
-                <span className="skillContent">Jquery</span>
-                <br />
-                <br />
-                <span className="skillContent">PostgreSQL</span>
-                <span className="skillContent">MySQL</span>
-                <span className="skillContent">Github</span>
-                <br />
-                <br />
-                <span className="skillContent">Docker</span>
-                <span className="skillContent">Nginx</span>
-                <span className="skillContent">Tomcat</span>
-                <span className="skillContent">Solr</span> */}
-          {/* </Col> */}
+          <Col>
+            <h2 className="contentHeading">SKILLS</h2>
+            {props.renderSkills()}
+          </Col>
         </Row>
         <br />
 

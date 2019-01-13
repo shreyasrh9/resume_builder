@@ -14,6 +14,7 @@ import MyPhoto from "./MyPhoto/MyPhoto";
 import MyWorkIntro from "./MyWorkIntro/MyWorkIntro";
 import MyContactInfo from "./MyContactInfo/MyContactInfo";
 import ResumePreview from "./ResumePreview.js";
+import { faSleigh } from "@fortawesome/free-solid-svg-icons";
 
 class ResumeHeader extends Component {
   state = {
@@ -42,6 +43,9 @@ class ResumeHeader extends Component {
     software: null,
     features: null,
     responsibilities: null,
+    haveSkills: false,
+    skill: null,
+    skills: ["Java/J2EE"],
     individualExperience: [
       {
         role: "Senior Software Engineer",
@@ -73,17 +77,9 @@ class ResumeHeader extends Component {
           "End to End development for multiple modules, Code reviews. Built the rest client using reactjs and rest API using python, flask. Setting up questions in dialogflow. Dockerizing the entire application"
       }
     ],
-    skills: ["Java/J2EE", "Python", "ReactJS", "Redux"],
     overview:
       "A senior software engineer involved in development of multiple cutting edge solutions on multiple environments across the enterprise. ",
     previewMode: false
-  };
-
-  setProfileName = event => {
-    this.setState({
-      name: event.target.value,
-      nameToBeShown: true
-    });
   };
 
   toggleView = () => {
@@ -93,9 +89,28 @@ class ResumeHeader extends Component {
   };
 
   /*
+  Add skills to the list and remove the default details present
+  */
+  addSkills = () => {
+    let skillsArray;
+    if (this.state.haveSkills) {
+      skillsArray = [...this.state.skills];
+    } else {
+      skillsArray = [];
+    }
+
+    if (this.state.skill != null) {
+      skillsArray.push(this.state.skill);
+      this.setState({ skills: skillsArray });
+      this.setState({ haveSkills: true });
+      this.setState({ skill: null });
+    }
+  };
+
+  /*
   Add experience details to the list and remove the default details present
   */
-  addExperience = event => {
+  addExperience = () => {
     let expArray;
     if (this.state.haveExpDet) {
       expArray = [...this.state.individualExperience];
@@ -236,10 +251,9 @@ class ResumeHeader extends Component {
       console.log("skill: " + skill);
       return (
         <div>
-          {skill.map(i => {
-            // console.log("i : " + i);
-            <span className="skillContent">{i}</span>;
-          })}
+          {skill.map(i => (
+            <span className="skillContent">{i}</span>
+          ))}
           <br />
           <br />
         </div>
@@ -265,6 +279,7 @@ class ResumeHeader extends Component {
             otherInfo={this.state.otherInfo}
             projInfo={this.state.projInfo}
             toggleView={this.toggleView}
+            renderSkills={this.renderSkills}
           />
         ) : (
           <div>
@@ -278,7 +293,14 @@ class ResumeHeader extends Component {
                   <Col xs="6">
                     <FormGroup>
                       <Label>Name</Label>
-                      <Input type="text" onChange={this.setProfileName} />
+                      <Input
+                        type="text"
+                        onChange={event => {
+                          this.setState({
+                            name: event.target.value
+                          });
+                        }}
+                      />
                     </FormGroup>
                   </Col>
                   <Col xs="6">
@@ -302,7 +324,6 @@ class ResumeHeader extends Component {
                       <Label>Email</Label>
                       <Input
                         type="email"
-                        placeholder="Ex : example@example.com"
                         onChange={event => {
                           this.setState({
                             email: event.target.value
@@ -316,7 +337,6 @@ class ResumeHeader extends Component {
                       <Label>Contact number</Label>
                       <Input
                         type="text"
-                        placeholder="Ex : +91999999999"
                         onChange={event => {
                           this.setState({
                             phone: event.target.value
@@ -426,6 +446,28 @@ class ResumeHeader extends Component {
                   </Col>
                 </Form>
               </Container>
+              <br />
+              <Container className="container">
+                <FormGroup>
+                  <Label>Skills : </Label>
+                </FormGroup>
+                <Row>
+                  <Col md={4}>
+                    <Input
+                      type="text"
+                      id="company"
+                      onChange={event => {
+                        this.setState({
+                          skill: event.target.value
+                        });
+                      }}
+                    />
+                  </Col>
+                  <Col sm={2}>
+                    <Button onClick={this.addSkills}>Add Skills</Button>
+                  </Col>
+                </Row>
+              </Container>
               <Container className="container">
                 <br />
                 <FormGroup>
@@ -454,7 +496,6 @@ class ResumeHeader extends Component {
                     <Label>Course name</Label>
                     <Input
                       type="text"
-                      placeholder="Course or degree name"
                       onChange={event => {
                         this.setState({
                           courseName: event.target.value
@@ -469,7 +510,6 @@ class ResumeHeader extends Component {
                     <Label>College Name</Label>
                     <Input
                       type="text"
-                      placeholder="College or university name"
                       onChange={event => {
                         this.setState({
                           collegeName: event.target.value
@@ -499,7 +539,7 @@ class ResumeHeader extends Component {
                       placeholder="Aggregate in %"
                       onChange={event => {
                         this.setState({
-                          aggregate: event.target.value
+                          aggregate: event.target.value + "%"
                         });
                       }}
                     />
@@ -524,7 +564,6 @@ class ResumeHeader extends Component {
                     <Label>Name</Label>
                     <Input
                       type="text"
-                      placeholder="Social Networking site"
                       onChange={event => {
                         this.setState({
                           socWebName: event.target.value
@@ -536,7 +575,6 @@ class ResumeHeader extends Component {
                     <Label>Link</Label>
                     <Input
                       type="text"
-                      placeholder="Link to Social Networking site"
                       onChange={event => {
                         this.setState({
                           socWebLink: event.target.value
@@ -589,7 +627,6 @@ class ResumeHeader extends Component {
                   type="text"
                   Row="5"
                   Col="100"
-                  placeholder="Prime features of the project"
                   onChange={event => {
                     this.setState({
                       features: event.target.value
@@ -602,7 +639,6 @@ class ResumeHeader extends Component {
                   type="text"
                   Row="5"
                   Col="100"
-                  placeholder="Individual role and responbilities taken"
                   onChange={event => {
                     this.setState({
                       responsibilities: event.target.value
@@ -671,40 +707,6 @@ class ResumeHeader extends Component {
                   <Col>
                     <h2 className="contentHeading">SKILLS</h2>
                     {this.renderSkills()}
-                    {/* <span className="skillContent">Java/J2EE</span>
-                <span className="skillContent">Python</span>
-                <span className="skillContent">ReactJS</span>
-
-                <br />
-                <br />
-                <span className="skillContent">Redux</span>
-                <span className="skillContent">Data Structures</span>
-                <span className="skillContent">Microservices</span>
-                <br />
-                <br />
-                <span className="skillContent">RESTful WebServices</span>
-                <span className="skillContent">Struts2</span>
-                <br />
-                <br />
-                <span className="skillContent">Spring/Spring Boot</span>
-                <span className="skillContent">JPA</span>
-                <span className="skillContent">HTML</span>
-                <br />
-                <br />
-                <span className="skillContent">CSS</span>
-                <span className="skillContent">Javascript</span>
-                <span className="skillContent">Jquery</span>
-                <br />
-                <br />
-                <span className="skillContent">PostgreSQL</span>
-                <span className="skillContent">MySQL</span>
-                <span className="skillContent">Github</span>
-                <br />
-                <br />
-                <span className="skillContent">Docker</span>
-                <span className="skillContent">Nginx</span>
-                <span className="skillContent">Tomcat</span>
-                <span className="skillContent">Solr</span> */}
                   </Col>
                 </Row>
                 <br />
