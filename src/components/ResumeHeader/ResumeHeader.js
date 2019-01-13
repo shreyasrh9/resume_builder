@@ -14,7 +14,6 @@ import MyPhoto from "./MyPhoto/MyPhoto";
 import MyWorkIntro from "./MyWorkIntro/MyWorkIntro";
 import MyContactInfo from "./MyContactInfo/MyContactInfo";
 import ResumePreview from "./ResumePreview.js";
-import { faSleigh } from "@fortawesome/free-solid-svg-icons";
 
 class ResumeHeader extends Component {
   state = {
@@ -58,7 +57,7 @@ class ResumeHeader extends Component {
         courseName: "Bachelor Of Engineering",
         collegeName: "Global Academy Of Technology",
         duration: "2008 - 2012",
-        aggregate: "75%"
+        aggregate: "75"
       }
     ],
     otherInfo: [
@@ -99,11 +98,11 @@ class ResumeHeader extends Component {
       skillsArray = [];
     }
 
-    if (this.state.skill != null) {
+    if (this.state.skill != "") {
       skillsArray.push(this.state.skill);
       this.setState({ skills: skillsArray });
       this.setState({ haveSkills: true });
-      this.setState({ skill: null });
+      this.setState({ skill: "" });
     }
   };
 
@@ -121,9 +120,9 @@ class ResumeHeader extends Component {
     const exp = { ...expArray[0] };
     if (
       !(
-        this.state.indRole === null ||
-        this.state.indDuration === null ||
-        this.state.indCompany === null
+        this.state.indRole === "" ||
+        this.state.indDuration === "" ||
+        this.state.indCompany === ""
       )
     ) {
       this.setState({ haveExpDet: true });
@@ -132,9 +131,9 @@ class ResumeHeader extends Component {
       exp.company = this.state.indCompany;
       expArray.push(exp);
       this.setState({ individualExperience: expArray });
-      this.setState({ indRole: null });
-      this.setState({ indDuration: null });
-      this.setState({ indCompany: null });
+      this.setState({ indRole: "" });
+      this.setState({ indDuration: "" });
+      this.setState({ indCompany: "" });
     }
   };
 
@@ -152,10 +151,10 @@ class ResumeHeader extends Component {
     const eduDetails = { ...eduDetailsArray[0] };
     if (
       !(
-        this.state.courseName === null ||
-        this.state.collegeName === null ||
-        this.state.duration === null ||
-        this.state.aggregate == null
+        this.state.courseName === "" ||
+        this.state.collegeName === "" ||
+        this.state.duration === "" ||
+        this.state.aggregate == ""
       )
     ) {
       this.setState({ haveEducationalInfo: true });
@@ -165,10 +164,10 @@ class ResumeHeader extends Component {
       eduDetails.aggregate = this.state.aggregate;
       eduDetailsArray.push(eduDetails);
       this.setState({ educationalInfo: eduDetailsArray });
-      this.setState({ courseName: null });
-      this.setState({ collegeName: null });
-      this.setState({ duration: null });
-      this.setState({ aggregate: null });
+      this.setState({ courseName: "" });
+      this.setState({ collegeName: "" });
+      this.setState({ duration: "" });
+      this.setState({ aggregate: "" });
     }
   };
 
@@ -184,14 +183,14 @@ class ResumeHeader extends Component {
     }
 
     const addInfo = { ...addInfoArray[0] };
-    if (!(this.state.socWebName === null || this.state.socWebLink === null)) {
+    if (!(this.state.socWebName === "" || this.state.socWebLink === "")) {
       this.setState({ haveOtherInfo: true });
       addInfo.name = this.state.socWebName;
       addInfo.link = this.state.socWebLink;
       addInfoArray.push(addInfo);
       this.setState({ otherInfo: addInfoArray });
-      this.setState({ socWebName: null });
-      this.setState({ socWebLink: null });
+      this.setState({ socWebName: "" });
+      this.setState({ socWebLink: "" });
     }
   };
 
@@ -209,10 +208,10 @@ class ResumeHeader extends Component {
     const projDetails = { ...projDetailsArray[0] };
     if (
       !(
-        this.state.projTitle === null ||
-        this.state.software === null ||
-        this.state.features === null ||
-        this.state.responsibilities == null
+        this.state.projTitle === "" ||
+        this.state.software === "" ||
+        this.state.features === "" ||
+        this.state.responsibilities == ""
       )
     ) {
       this.setState({ haveProjInfo: true });
@@ -222,16 +221,15 @@ class ResumeHeader extends Component {
       projDetails.responsibilities = this.state.responsibilities;
       projDetailsArray.push(projDetails);
       this.setState({ projInfo: projDetailsArray });
-      this.setState({ projTitle: null });
-      this.setState({ software: null });
-      this.setState({ features: null });
-      this.setState({ responsibilities: null });
+      this.setState({ projTitle: "" });
+      this.setState({ software: "" });
+      this.setState({ features: "" });
+      this.setState({ responsibilities: "" });
     }
   };
 
   renderSkills = () => {
     const chunkSize = 3;
-    console.log("Entered renderskills");
     let a = this.state.skills.reduce(
       (acc, item, idx) => {
         let group = acc.pop();
@@ -248,7 +246,6 @@ class ResumeHeader extends Component {
 
     // there is some problem here while rendering
     return a.map(skill => {
-      console.log("skill: " + skill);
       return (
         <div>
           {skill.map(i => (
@@ -404,6 +401,7 @@ class ResumeHeader extends Component {
                         <Input
                           type="text"
                           id="role"
+                          value={this.state.indRole}
                           onChange={event => {
                             this.setState({
                               indRole: event.target.value
@@ -418,6 +416,7 @@ class ResumeHeader extends Component {
                         <Input
                           type="text"
                           id="duration"
+                          value={this.state.indDuration}
                           onChange={event => {
                             this.setState({
                               indDuration: event.target.value
@@ -432,6 +431,7 @@ class ResumeHeader extends Component {
                         <Input
                           type="text"
                           id="company"
+                          value={this.state.indCompany}
                           onChange={event => {
                             this.setState({
                               indCompany: event.target.value
@@ -456,6 +456,7 @@ class ResumeHeader extends Component {
                     <Input
                       type="text"
                       id="company"
+                      value={this.state.skill}
                       onChange={event => {
                         this.setState({
                           skill: event.target.value
@@ -496,6 +497,7 @@ class ResumeHeader extends Component {
                     <Label>Course name</Label>
                     <Input
                       type="text"
+                      value={this.state.courseName}
                       onChange={event => {
                         this.setState({
                           courseName: event.target.value
@@ -510,6 +512,7 @@ class ResumeHeader extends Component {
                     <Label>College Name</Label>
                     <Input
                       type="text"
+                      value={this.state.collegeName}
                       onChange={event => {
                         this.setState({
                           collegeName: event.target.value
@@ -524,6 +527,7 @@ class ResumeHeader extends Component {
                     <Label>Duration of Course</Label>
                     <Input
                       type="text"
+                      value={this.state.duration}
                       placeholder="Ex: 2012-2018"
                       onChange={event => {
                         this.setState({
@@ -537,9 +541,10 @@ class ResumeHeader extends Component {
                     <Input
                       type="text"
                       placeholder="Aggregate in %"
+                      value={this.state.aggregate}
                       onChange={event => {
                         this.setState({
-                          aggregate: event.target.value + "%"
+                          aggregate: event.target.value
                         });
                       }}
                     />
@@ -564,6 +569,7 @@ class ResumeHeader extends Component {
                     <Label>Name</Label>
                     <Input
                       type="text"
+                      value={this.state.socWebName}
                       onChange={event => {
                         this.setState({
                           socWebName: event.target.value
@@ -575,6 +581,7 @@ class ResumeHeader extends Component {
                     <Label>Link</Label>
                     <Input
                       type="text"
+                      value={this.state.socWebLink}
                       onChange={event => {
                         this.setState({
                           socWebLink: event.target.value
@@ -600,6 +607,7 @@ class ResumeHeader extends Component {
                     <Label>Project Title</Label>
                     <Input
                       type="text"
+                      value={this.state.projTitle}
                       onChange={event => {
                         this.setState({
                           projTitle: event.target.value
@@ -615,6 +623,7 @@ class ResumeHeader extends Component {
                   Row="5"
                   Col="100"
                   placeholder="Comma seperated list of softwares used in the project"
+                  value={this.state.software}
                   onChange={event => {
                     this.setState({
                       software: event.target.value
@@ -627,6 +636,7 @@ class ResumeHeader extends Component {
                   type="text"
                   Row="5"
                   Col="100"
+                  value={this.state.features}
                   onChange={event => {
                     this.setState({
                       features: event.target.value
@@ -639,6 +649,7 @@ class ResumeHeader extends Component {
                   type="text"
                   Row="5"
                   Col="100"
+                  value={this.state.responsibilities}
                   onChange={event => {
                     this.setState({
                       responsibilities: event.target.value
@@ -723,7 +734,9 @@ class ResumeHeader extends Component {
                         <h3 className="subContentHeading">{d.courseName}</h3>
                         <h4>{d.collegeName}</h4>
                         <span className="contentDuration">{d.duration}</span>
-                        <span className="contentLocation">{d.aggregate}</span>
+                        <span className="contentLocation">
+                          {d.aggregate + "%"}
+                        </span>
                       </div>
                     ))}
                   </Col>

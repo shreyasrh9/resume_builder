@@ -67,7 +67,7 @@ const resumePreview = props => {
                 <h3 className="subContentHeading">{d.courseName}</h3>
                 <h4>{d.collegeName}</h4>
                 <span className="contentDuration">{d.duration}</span>
-                <span className="contentLocation">{d.aggregate}</span>
+                <span className="contentLocation">{d.aggregate + "%"}</span>
               </div>
             ))}
           </Col>
