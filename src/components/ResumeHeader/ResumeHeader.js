@@ -263,7 +263,7 @@ class ResumeHeader extends Component {
     return (
       <div>
         {this.state.previewMode ? (
-          <ResumePreview
+          <ResumePreview 
             name={this.state.name}
             image={this.state.image}
             designation={this.state.designation}
@@ -322,7 +322,7 @@ class ResumeHeader extends Component {
                         <Label><b>Image Url</b></Label>
                         <Input
                           type="text"
-                          placeholder="url in jpg format"
+                          placeholder=""
                           onChange={event => {
                             this.setState({
                               image: event.target.value
@@ -643,7 +643,7 @@ class ResumeHeader extends Component {
                     type="text"
                     Row="5"
                     Col="100"
-                    placeholder="Comma seperated list of softwares used in the project"
+                    placeholder=""
                     value={this.state.software}
                     onChange={event => {
                       this.setState({
@@ -746,7 +746,7 @@ class ResumeHeader extends Component {
 
                   <Row style={{ marginTop: "1%" }}>
                     <Col>
-                      <h2 className="contentHeading">Overview</h2>
+                      <h2 className="contentHeading">OVERVIEW</h2>
                       <p>{this.state.overview}</p>
                       <br />
                       <br />

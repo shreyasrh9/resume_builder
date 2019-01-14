@@ -8,7 +8,7 @@ import MyContactInfo from "./MyContactInfo/MyContactInfo";
 const resumePreview = props => {
   return (
     <div>
-      <div id="previewPage">
+      <div id="previewPage" style={{padding:"20px"}}>
         <Container className="container">
           <Row>
             <Col xs="2">
@@ -121,6 +121,9 @@ const resumePreview = props => {
       </div>
       <Container className="container">
         <div class="no-print">
+          <Row>
+            <h4>Please print your resume using ctrl+p and save as PDF.</h4>
+          </Row>
           <Row>
             <Button onClick={props.toggleView}>Back</Button>
           </Row>
