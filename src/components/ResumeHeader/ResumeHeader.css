@@ -53,3 +53,9 @@
 .right {
   right: 0;
 }
+
+@media print {
+  .no-print {
+    visibility: hidden;
+  }
+}
