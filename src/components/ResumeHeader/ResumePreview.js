@@ -8,7 +8,17 @@ import MyContactInfo from "./MyContactInfo/MyContactInfo";
 const resumePreview = props => {
   return (
     <div>
-      <div id="previewPage" style={{padding:"20px"}}>
+      <Container className="container">
+        <div class="no-print">
+          <Row>
+            <h5>Please print your resume using ctrl+p and save as PDF.</h5>
+          </Row>
+          <Row>
+            <Button onClick={props.toggleView} color="danger">Back</Button>
+          </Row>
+        </div>
+      </Container>
+      <div id="previewPage" style={{ padding: "20px" }}>
         <Container className="container">
           <Row>
             <Col xs="2">
@@ -119,16 +129,7 @@ const resumePreview = props => {
           </Row>
         </Container>
       </div>
-      <Container className="container">
-        <div class="no-print">
-          <Row>
-            <h4>Please print your resume using ctrl+p and save as PDF.</h4>
-          </Row>
-          <Row>
-            <Button onClick={props.toggleView}>Back</Button>
-          </Row>
-        </div>
-      </Container>
+
     </div>
   );
 };
