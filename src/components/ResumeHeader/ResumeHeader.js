@@ -18,6 +18,7 @@ import ResumePreview from "./ResumePreview.js";
 class ResumeHeader extends Component {
   state = {
     name: "Name",
+    image: "https://i.stack.imgur.com/34AD2.jpg",
     designation: "Software Engineer @ Google",
     email: "example@example.com",
     phone: "+919999999999",
@@ -264,6 +265,7 @@ class ResumeHeader extends Component {
         {this.state.previewMode ? (
           <ResumePreview
             name={this.state.name}
+            image={this.state.image}
             designation={this.state.designation}
             email={this.state.email}
             phone={this.state.phone}
@@ -314,7 +316,22 @@ class ResumeHeader extends Component {
                     </FormGroup>
                   </Col>
                 </Row>
-
+                <Row>
+                  <Col md={8}>
+                    <FormGroup>
+                      <Label>Image Url</Label>
+                      <Input
+                        type="text"
+                        placeholder="url in jpg format"
+                        onChange={event => {
+                          this.setState({
+                            image: event.target.value
+                          });
+                        }}
+                      />
+                    </FormGroup>
+                  </Col>
+                </Row>
                 <Row>
                   <Col xs="6">
                     <FormGroup>
@@ -676,7 +693,8 @@ class ResumeHeader extends Component {
                 <Row>
                   <Col xs="3">
                     <MyPhoto
-                      source="https://res.cloudinary.com/shreyas/image/upload/v1447835724/_20150603_122529_a3k9rn.jpg"
+                      // source="https://res.cloudinary.com/shreyas/image/upload/v1447835724/_20150603_122529_a3k9rn.jpg"
+                      source={this.state.image}
                       alt="Profile Picture"
                     />
                   </Col>
