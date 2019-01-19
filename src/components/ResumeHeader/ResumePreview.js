@@ -14,7 +14,9 @@ const resumePreview = props => {
             <h5>Please print your resume using ctrl+p and save as PDF.</h5>
           </Row>
           <Row>
-            <Button onClick={props.toggleView} color="danger">Back</Button>
+            <Button onClick={props.toggleView} color="danger">
+              Back
+            </Button>
           </Row>
         </div>
       </Container>
@@ -84,7 +86,7 @@ const resumePreview = props => {
               ))}
             </Col>
             <Col>
-              <h2 className="contentHeading">CODING INTERESTS</h2>
+              {/* <h2 className="contentHeading">CODING INTERESTS</h2>
               <h4>Hacker Earth - An ultimate hub for programmers</h4>
               <span className="contentDuration">
                 Have competitive percentile above 98% on HackerEarth
@@ -92,7 +94,7 @@ const resumePreview = props => {
 
               <br />
               <br />
-              <br />
+              <br /> */}
               <h2 className="contentHeading">OTHER INFO</h2>
               {props.otherInfo.map(d => (
                 <div>
@@ -129,7 +131,6 @@ const resumePreview = props => {
           </Row>
         </Container>
       </div>
-
     </div>
   );
 };

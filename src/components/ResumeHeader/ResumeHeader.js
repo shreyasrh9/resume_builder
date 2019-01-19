@@ -263,7 +263,7 @@ class ResumeHeader extends Component {
     return (
       <div>
         {this.state.previewMode ? (
-          <ResumePreview 
+          <ResumePreview
             name={this.state.name}
             image={this.state.image}
             designation={this.state.designation}
@@ -281,489 +281,547 @@ class ResumeHeader extends Component {
             renderSkills={this.renderSkills}
           />
         ) : (
-            <div>
-              <div className="split left" style={{padding:"20px"}}>
-                <Container className="container">
-                  <FormGroup>
-                    <h3><b>Details :</b></h3>
-                  </FormGroup>
+          <div>
+            <div className="split left" style={{ padding: "20px" }}>
+              <Container className="container">
+                <FormGroup>
+                  <h3>
+                    <b>Details :</b>
+                  </h3>
+                </FormGroup>
 
-                  <Row>
-                    <Col xs="6">
-                      <FormGroup>
-                        <Label><b>Name</b></Label>
-                        <Input
-                          type="text"
-                          onChange={event => {
-                            this.setState({
-                              name: event.target.value
-                            });
-                          }}
-                        />
-                      </FormGroup>
-                    </Col>
-                    <Col xs="6">
-                      <FormGroup>
-                        <Label><b>Designation</b></Label>
-                        <Input
-                          type="text"
-                          onChange={event => {
-                            this.setState({
-                              designation: event.target.value
-                            });
-                          }}
-                        />
-                      </FormGroup>
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col md={8}>
-                      <FormGroup>
-                        <Label><b>Image Url</b></Label>
-                        <Input
-                          type="text"
-                          placeholder=""
-                          onChange={event => {
-                            this.setState({
-                              image: event.target.value
-                            });
-                          }}
-                        />
-                      </FormGroup>
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col xs="6">
-                      <FormGroup>
-                        <Label><b>Email</b></Label>
-                        <Input
-                          type="email"
-                          onChange={event => {
-                            this.setState({
-                              email: event.target.value
-                            });
-                          }}
-                        />
-                      </FormGroup>
-                    </Col>
-                    <Col xs="6">
-                      <FormGroup>
-                        <Label><b>Contact number</b></Label>
-                        <Input
-                          type="text"
-                          onChange={event => {
-                            this.setState({
-                              phone: event.target.value
-                            });
-                          }}
-                        />
-                      </FormGroup>
-                    </Col>
-                  </Row>
+                <Row>
+                  <Col xs="6">
+                    <FormGroup>
+                      <Label>
+                        <b>Name</b>
+                      </Label>
+                      <Input
+                        type="text"
+                        onChange={event => {
+                          this.setState({
+                            name: event.target.value
+                          });
+                        }}
+                      />
+                    </FormGroup>
+                  </Col>
+                  <Col xs="6">
+                    <FormGroup>
+                      <Label>
+                        <b>Designation</b>
+                      </Label>
+                      <Input
+                        type="text"
+                        onChange={event => {
+                          this.setState({
+                            designation: event.target.value
+                          });
+                        }}
+                      />
+                    </FormGroup>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col md={8}>
+                    <FormGroup>
+                      <Label>
+                        <b>Image Url</b>
+                      </Label>
+                      <Input
+                        type="text"
+                        placeholder=""
+                        onChange={event => {
+                          this.setState({
+                            image: event.target.value
+                          });
+                        }}
+                      />
+                    </FormGroup>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col xs="6">
+                    <FormGroup>
+                      <Label>
+                        <b>Email</b>
+                      </Label>
+                      <Input
+                        type="email"
+                        onChange={event => {
+                          this.setState({
+                            email: event.target.value
+                          });
+                        }}
+                      />
+                    </FormGroup>
+                  </Col>
+                  <Col xs="6">
+                    <FormGroup>
+                      <Label>
+                        <b>Contact number</b>
+                      </Label>
+                      <Input
+                        type="text"
+                        onChange={event => {
+                          this.setState({
+                            phone: event.target.value
+                          });
+                        }}
+                      />
+                    </FormGroup>
+                  </Col>
+                </Row>
 
+                <Row>
+                  <Col xs="6">
+                    <FormGroup>
+                      <Label>
+                        <b>Location</b>
+                      </Label>
+                      <Input
+                        type="text"
+                        onChange={event => {
+                          this.setState({
+                            location: event.target.value
+                          });
+                        }}
+                      />
+                    </FormGroup>
+                  </Col>
+                  <Col xs="6">
+                    <FormGroup>
+                      <Label>
+                        <b>Experience</b>
+                      </Label>
+                      <Row>
+                        <Col xs="4">
+                          <Input
+                            type="number"
+                            onChange={event => {
+                              this.setState({
+                                totalExperience:
+                                  event.target.value + " years of experience"
+                              });
+                            }}
+                          />
+                        </Col>
+                        <Col xs="2">as a</Col>
+                        <Col xs="6">
+                          <Input
+                            type="text"
+                            onChange={event => {
+                              this.setState({
+                                role: event.target.value
+                              });
+                            }}
+                          />
+                        </Col>
+                      </Row>
+                    </FormGroup>
+                  </Col>
+                </Row>
+              </Container>
+              <Container className="container">
+                <FormGroup>
+                  <Label>
+                    <b>Individual Experiences :</b>
+                  </Label>
+                </FormGroup>
+                <Form>
                   <Row>
-                    <Col xs="6">
+                    <Col md={4}>
                       <FormGroup>
-                        <Label><b>Location</b></Label>
+                        <Label>
+                          <b>Role</b>
+                        </Label>
                         <Input
                           type="text"
+                          id="role"
+                          value={this.state.indRole}
                           onChange={event => {
                             this.setState({
-                              location: event.target.value
+                              indRole: event.target.value
                             });
                           }}
                         />
                       </FormGroup>
                     </Col>
-                    <Col xs="6">
+                    <Col md={4}>
                       <FormGroup>
-                        <Label><b>Experience</b></Label>
-                        <Row>
-                          <Col xs="4">
-                            <Input
-                              type="number"
-                              onChange={event => {
-                                this.setState({
-                                  totalExperience:
-                                    event.target.value + " years of experience"
-                                });
-                              }}
-                            />
-                          </Col>
-                          <Col xs="2">as a</Col>
-                          <Col xs="6">
-                            <Input
-                              type="text"
-                              onChange={event => {
-                                this.setState({
-                                  role: event.target.value
-                                });
-                              }}
-                            />
-                          </Col>
-                        </Row>
+                        <Label>
+                          <b>Duration</b>
+                        </Label>
+                        <Input
+                          type="text"
+                          id="duration"
+                          value={this.state.indDuration}
+                          onChange={event => {
+                            this.setState({
+                              indDuration: event.target.value
+                            });
+                          }}
+                        />
+                      </FormGroup>
+                    </Col>
+                    <Col md={4}>
+                      <FormGroup>
+                        <Label>
+                          <b>Company</b>
+                        </Label>
+                        <Input
+                          type="text"
+                          id="company"
+                          value={this.state.indCompany}
+                          onChange={event => {
+                            this.setState({
+                              indCompany: event.target.value
+                            });
+                          }}
+                        />
                       </FormGroup>
                     </Col>
                   </Row>
-                </Container>
-                <Container className="container">
-                  <FormGroup>
-                    <Label><b>Individual Experiences :</b></Label>
-                  </FormGroup>
-                  <Form>
-                    <Row>
-                      <Col md={4}>
-                        <FormGroup>
-                          <Label><b>Role</b></Label>
-                          <Input
-                            type="text"
-                            id="role"
-                            value={this.state.indRole}
-                            onChange={event => {
-                              this.setState({
-                                indRole: event.target.value
-                              });
-                            }}
-                          />
-                        </FormGroup>
-                      </Col>
-                      <Col md={4}>
-                        <FormGroup>
-                          <Label><b>Duration</b></Label>
-                          <Input
-                            type="text"
-                            id="duration"
-                            value={this.state.indDuration}
-                            onChange={event => {
-                              this.setState({
-                                indDuration: event.target.value
-                              });
-                            }}
-                          />
-                        </FormGroup>
-                      </Col>
-                      <Col md={4}>
-                        <FormGroup>
-                          <Label><b>Company</b></Label>
-                          <Input
-                            type="text"
-                            id="company"
-                            value={this.state.indCompany}
-                            onChange={event => {
-                              this.setState({
-                                indCompany: event.target.value
-                              });
-                            }}
-                          />
-                        </FormGroup>
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col sm={2}>
-                        <Button onClick={this.addExperience}>Add Experience</Button>
-                      </Col>
-                    </Row>
-                  </Form>
-                </Container>
-                <br />
-                <Container className="container">
-                  <FormGroup>
-                    <Label><b>Skills : </b></Label>
-                  </FormGroup>
-                  <Row>
-                    <Col md={4}>
-                      <Input
-                        type="text"
-                        id="company"
-                        value={this.state.skill}
-                        onChange={event => {
-                          this.setState({
-                            skill: event.target.value
-                          });
-                        }}
-                      />
-                    </Col>
-                    <Col sm={2}>
-                      <Button onClick={this.addSkills}>Add Skills</Button>
-                    </Col>
-                  </Row>
-                </Container>
-                <Container className="container">
-                  <br />
-                  <FormGroup>
-                    <Label><b>Overview :</b></Label>
-                  </FormGroup>
-                  <Input
-                    type="text"
-                    Row="5"
-                    Col="100"
-                    id="overview"
-                    placeholder="Brief description of your work (within 500 characters)"
-                    onChange={event => {
-                      this.setState({
-                        overview: event.target.value
-                      });
-                    }}
-                  />
-                </Container>
-                <Container className="container">
-                  <br />
-                  <FormGroup>
-                    <Label><b>Educational Information :</b></Label>
-                  </FormGroup>
-                  <Row>
-                    <Col md={7}>
-                      <Label><b>Course name</b></Label>
-                      <Input
-                        type="text"
-                        value={this.state.courseName}
-                        onChange={event => {
-                          this.setState({
-                            courseName: event.target.value
-                          });
-                        }}
-                      />
-                    </Col>
-                  </Row>
-                  <br />
-                  <Row>
-                    <Col md={7}>
-                      <Label><b>College Name</b></Label>
-                      <Input
-                        type="text"
-                        value={this.state.collegeName}
-                        onChange={event => {
-                          this.setState({
-                            collegeName: event.target.value
-                          });
-                        }}
-                      />
-                    </Col>
-                  </Row>
-                  <br />
-                  <Row>
-                    <Col md={4}>
-                      <Label><b>Duration of Course</b></Label>
-                      <Input
-                        type="text"
-                        value={this.state.duration}
-                        placeholder="Ex: 2012-2018"
-                        onChange={event => {
-                          this.setState({
-                            duration: event.target.value
-                          });
-                        }}
-                      />
-                    </Col>
-                    <Col md={4}>
-                      <Label><b>Aggregate</b></Label>
-                      <Input
-                        type="text"
-                        placeholder="Aggregate in %"
-                        value={this.state.aggregate}
-                        onChange={event => {
-                          this.setState({
-                            aggregate: event.target.value
-                          });
-                        }}
-                      />
-                    </Col>
-                  </Row>
-                  <br />
                   <Row>
                     <Col sm={2}>
-                      <Button onClick={this.addEducationInfo}>
-                        Add Information
-                    </Button>
-                    </Col>
-                  </Row>
-                </Container>
-                <Container className="container">
-                  <br />
-                  <FormGroup>
-                    <Label><b>Other Information :</b></Label>
-                  </FormGroup>
-                  <Row>
-                    <Col md={4}>
-                      <Label><b>Name</b></Label>
-                      <Input
-                        type="text"
-                        value={this.state.socWebName}
-                        onChange={event => {
-                          this.setState({
-                            socWebName: event.target.value
-                          });
-                        }}
-                      />
-                    </Col>
-                    <Col md={8}>
-                      <Label><b>Link</b></Label>
-                      <Input
-                        type="text"
-                        value={this.state.socWebLink}
-                        onChange={event => {
-                          this.setState({
-                            socWebLink: event.target.value
-                          });
-                        }}
-                      />
-                    </Col>
-                  </Row>
-                  <br />
-                  <Row>
-                    <Col sm={2}>
-                      <Button onClick={this.addAdditionalInfo}>
-                        Add Information{" "}
+                      <Button onClick={this.addExperience}>
+                        Add Experience
                       </Button>
                     </Col>
                   </Row>
-                </Container>
-                <Container className="container">
-                  <br />
-                  <FormGroup>
-                    <Label><b>Project Information :</b></Label>
-                  </FormGroup>
-                  <Row>
-                    <Col sm={4}>
-                      <Label><b>Project Title</b></Label>
-                      <Input
-                        type="text"
-                        value={this.state.projTitle}
-                        onChange={event => {
-                          this.setState({
-                            projTitle: event.target.value
-                          });
-                        }}
-                      />
-                    </Col>
-                  </Row>
-                  <br />
-                  <Label><b>Softwares Used</b></Label>
-                  <Input
-                    type="text"
-                    Row="5"
-                    Col="100"
-                    placeholder=""
-                    value={this.state.software}
-                    onChange={event => {
-                      this.setState({
-                        software: event.target.value
-                      });
-                    }}
-                  />
-                  <br />
-                  <Label><b>Features</b></Label>
-                  <Input
-                    type="text"
-                    Row="5"
-                    Col="100"
-                    value={this.state.features}
-                    onChange={event => {
-                      this.setState({
-                        features: event.target.value
-                      });
-                    }}
-                  />
-                  <br />
-                  <Label><b>Roles and responsibilities</b></Label>
-                  <Input
-                    type="text"
-                    Row="5"
-                    Col="100"
-                    value={this.state.responsibilities}
-                    onChange={event => {
-                      this.setState({
-                        responsibilities: event.target.value
-                      });
-                    }}
-                  />
-                  <br />
-                  <Button onClick={this.addProjectInfo}>
-                    Add Project Information
+                </Form>
+              </Container>
+              <br />
+              <Container className="container">
+                <FormGroup>
+                  <Label>
+                    <b>Skills : </b>
+                  </Label>
+                </FormGroup>
+                <Row>
+                  <Col md={4}>
+                    <Input
+                      type="text"
+                      id="company"
+                      value={this.state.skill}
+                      onChange={event => {
+                        this.setState({
+                          skill: event.target.value
+                        });
+                      }}
+                    />
+                  </Col>
+                  <Col sm={2}>
+                    <Button onClick={this.addSkills}>Add Skills</Button>
+                  </Col>
+                </Row>
+              </Container>
+              <Container className="container">
+                <br />
+                <FormGroup>
+                  <Label>
+                    <b>Overview :</b>
+                  </Label>
+                </FormGroup>
+                <Input
+                  type="text"
+                  Row="5"
+                  Col="100"
+                  id="overview"
+                  placeholder="Brief description of your work (within 500 characters)"
+                  onChange={event => {
+                    this.setState({
+                      overview: event.target.value
+                    });
+                  }}
+                />
+              </Container>
+              <Container className="container">
+                <br />
+                <FormGroup>
+                  <Label>
+                    <b>Educational Information :</b>
+                  </Label>
+                </FormGroup>
+                <Row>
+                  <Col md={7}>
+                    <Label>
+                      <b>Course name</b>
+                    </Label>
+                    <Input
+                      type="text"
+                      value={this.state.courseName}
+                      onChange={event => {
+                        this.setState({
+                          courseName: event.target.value
+                        });
+                      }}
+                    />
+                  </Col>
+                </Row>
+                <br />
+                <Row>
+                  <Col md={7}>
+                    <Label>
+                      <b>College Name</b>
+                    </Label>
+                    <Input
+                      type="text"
+                      value={this.state.collegeName}
+                      onChange={event => {
+                        this.setState({
+                          collegeName: event.target.value
+                        });
+                      }}
+                    />
+                  </Col>
+                </Row>
+                <br />
+                <Row>
+                  <Col md={4}>
+                    <Label>
+                      <b>Duration of Course</b>
+                    </Label>
+                    <Input
+                      type="text"
+                      value={this.state.duration}
+                      placeholder="Ex: 2012-2018"
+                      onChange={event => {
+                        this.setState({
+                          duration: event.target.value
+                        });
+                      }}
+                    />
+                  </Col>
+                  <Col md={4}>
+                    <Label>
+                      <b>Aggregate</b>
+                    </Label>
+                    <Input
+                      type="text"
+                      placeholder="Aggregate in %"
+                      value={this.state.aggregate}
+                      onChange={event => {
+                        this.setState({
+                          aggregate: event.target.value
+                        });
+                      }}
+                    />
+                  </Col>
+                </Row>
+                <br />
+                <Row>
+                  <Col sm={2}>
+                    <Button onClick={this.addEducationInfo}>
+                      Add Information
+                    </Button>
+                  </Col>
+                </Row>
+              </Container>
+              <Container className="container">
+                <br />
+                <FormGroup>
+                  <Label>
+                    <b>Other Information :</b>
+                  </Label>
+                </FormGroup>
+                <Row>
+                  <Col md={4}>
+                    <Label>
+                      <b>Name</b>
+                    </Label>
+                    <Input
+                      type="text"
+                      value={this.state.socWebName}
+                      onChange={event => {
+                        this.setState({
+                          socWebName: event.target.value
+                        });
+                      }}
+                    />
+                  </Col>
+                  <Col md={8}>
+                    <Label>
+                      <b>Link</b>
+                    </Label>
+                    <Input
+                      type="text"
+                      value={this.state.socWebLink}
+                      onChange={event => {
+                        this.setState({
+                          socWebLink: event.target.value
+                        });
+                      }}
+                    />
+                  </Col>
+                </Row>
+                <br />
+                <Row>
+                  <Col sm={2}>
+                    <Button onClick={this.addAdditionalInfo}>
+                      Add Information{" "}
+                    </Button>
+                  </Col>
+                </Row>
+              </Container>
+              <Container className="container">
+                <br />
+                <FormGroup>
+                  <Label>
+                    <b>Project Information :</b>
+                  </Label>
+                </FormGroup>
+                <Row>
+                  <Col sm={4}>
+                    <Label>
+                      <b>Project Title</b>
+                    </Label>
+                    <Input
+                      type="text"
+                      value={this.state.projTitle}
+                      onChange={event => {
+                        this.setState({
+                          projTitle: event.target.value
+                        });
+                      }}
+                    />
+                  </Col>
+                </Row>
+                <br />
+                <Label>
+                  <b>Softwares Used</b>
+                </Label>
+                <Input
+                  type="text"
+                  Row="5"
+                  Col="100"
+                  placeholder=""
+                  value={this.state.software}
+                  onChange={event => {
+                    this.setState({
+                      software: event.target.value
+                    });
+                  }}
+                />
+                <br />
+                <Label>
+                  <b>Features</b>
+                </Label>
+                <Input
+                  type="text"
+                  Row="5"
+                  Col="100"
+                  value={this.state.features}
+                  onChange={event => {
+                    this.setState({
+                      features: event.target.value
+                    });
+                  }}
+                />
+                <br />
+                <Label>
+                  <b>Roles and responsibilities</b>
+                </Label>
+                <Input
+                  type="text"
+                  Row="5"
+                  Col="100"
+                  value={this.state.responsibilities}
+                  onChange={event => {
+                    this.setState({
+                      responsibilities: event.target.value
+                    });
+                  }}
+                />
+                <br />
+                <Button onClick={this.addProjectInfo}>
+                  Add Project Information
                 </Button>
-                  <br />
-                  <br />
-                  <br />
-                  <Row>
-                    <Col sm={4} />
-                    <Col sm={6}>
-                      <Button onClick={this.toggleView} color="success">Preview</Button>
-                    </Col>
-                  </Row>
-                </Container>
-              </div>
-              <div className="split right" style={{padding:"20px"}}>
-                <Container className="container">
-                  <Row>
-                    <Col xs="3">
-                      <MyPhoto
-                        // source="https://res.cloudinary.com/shreyas/image/upload/v1447835724/_20150603_122529_a3k9rn.jpg"
-                        source={this.state.image}
-                        alt="Profile Picture"
-                      />
-                    </Col>
-                    <Col>
-                      <MyWorkIntro
-                        name={this.state.name}
-                        position={this.state.designation}
-                      />
-                    </Col>
-                    <Col>
-                      <MyContactInfo
-                        email={this.state.email}
-                        mobileNumber={this.state.phone}
-                        place={this.state.location}
-                      />
-                    </Col>
-                  </Row>
-                  <Row style={{ marginTop: "1%" }}>
-                    <Col>
-                      <span>{this.state.totalExperience}</span>
-                      <span> as a </span>
-                      <span>{this.state.role}</span>
-                    </Col>
-                  </Row>
+                <br />
+                <br />
+                <br />
+                <Row>
+                  <Col sm={4} />
+                  <Col sm={6}>
+                    <Button onClick={this.toggleView} color="success">
+                      Preview
+                    </Button>
+                  </Col>
+                </Row>
+              </Container>
+            </div>
+            <div className="split right" style={{ padding: "20px" }}>
+              <Container className="container">
+                <Row>
+                  <Col xs="3">
+                    <MyPhoto
+                      // source="https://res.cloudinary.com/shreyas/image/upload/v1447835724/_20150603_122529_a3k9rn.jpg"
+                      source={this.state.image}
+                      alt="Profile Picture"
+                    />
+                  </Col>
+                  <Col>
+                    <MyWorkIntro
+                      name={this.state.name}
+                      position={this.state.designation}
+                    />
+                  </Col>
+                  <Col>
+                    <MyContactInfo
+                      email={this.state.email}
+                      mobileNumber={this.state.phone}
+                      place={this.state.location}
+                    />
+                  </Col>
+                </Row>
+                <Row style={{ marginTop: "1%" }}>
+                  <Col>
+                    <span>{this.state.totalExperience}</span>
+                    <span> as a </span>
+                    <span>{this.state.role}</span>
+                  </Col>
+                </Row>
 
-                  <Row style={{ marginTop: "1%" }}>
-                    <Col>
-                      <h2 className="contentHeading">WORK EXPERIENCE</h2>
-                      {this.state.individualExperience.map(d => (
-                        <div>
-                          <h3 className="subContentHeading">{d.role}</h3>
-                          <span className="contentDuration">{d.duration}</span>
-                          <span className="contentLocation">{d.company}</span>
-                          <br />
-                          <br />
-                        </div>
-                      ))}
-                    </Col>
-                    <Col>
-                      <h2 className="contentHeading">SKILLS</h2>
-                      {this.renderSkills()}
-                    </Col>
-                  </Row>
-                  <br />
+                <Row style={{ marginTop: "1%" }}>
+                  <Col>
+                    <h2 className="contentHeading">WORK EXPERIENCE</h2>
+                    {this.state.individualExperience.map(d => (
+                      <div>
+                        <h3 className="subContentHeading">{d.role}</h3>
+                        <span className="contentDuration">{d.duration}</span>
+                        <span className="contentLocation">{d.company}</span>
+                        <br />
+                        <br />
+                      </div>
+                    ))}
+                  </Col>
+                  <Col>
+                    <h2 className="contentHeading">SKILLS</h2>
+                    {this.renderSkills()}
+                  </Col>
+                </Row>
+                <br />
 
-                  <Row style={{ marginTop: "1%" }}>
-                    <Col>
-                      <h2 className="contentHeading">OVERVIEW</h2>
-                      <p>{this.state.overview}</p>
-                      <br />
-                      <br />
-                      <h2 className="contentHeading">EDUCATION</h2>
-                      {this.state.educationalInfo.map(d => (
-                        <div>
-                          <h3 className="subContentHeading">{d.courseName}</h3>
-                          <h4>{d.collegeName}</h4>
-                          <span className="contentDuration">{d.duration}</span>
-                          <span className="contentLocation">
-                            {d.aggregate + "%"}
-                          </span>
-                        </div>
-                      ))}
-                    </Col>
-                    <Col>
-                      <h2 className="contentHeading">CODING INTERESTS</h2>
+                <Row style={{ marginTop: "1%" }}>
+                  <Col>
+                    <h2 className="contentHeading">OVERVIEW</h2>
+                    <p>{this.state.overview}</p>
+                    <br />
+                    <br />
+                    <h2 className="contentHeading">EDUCATION</h2>
+                    {this.state.educationalInfo.map(d => (
+                      <div>
+                        <h3 className="subContentHeading">{d.courseName}</h3>
+                        <h4>{d.collegeName}</h4>
+                        <span className="contentDuration">{d.duration}</span>
+                        <span className="contentLocation">
+                          {d.aggregate + "%"}
+                        </span>
+                      </div>
+                    ))}
+                  </Col>
+                  <Col>
+                    {/* <h2 className="contentHeading">CODING INTERESTS</h2>
                       <h4>Hacker Earth - An ultimate hub for programmers</h4>
                       <span className="contentDuration">
                         Have competitive percentile above 98% on HackerEarth
@@ -771,53 +829,52 @@ class ResumeHeader extends Component {
 
                       <br />
                       <br />
-                      <br />
-                      <h2 className="contentHeading">OTHER INFO</h2>
-                      {this.state.otherInfo.map(d => (
-                        <div>
-                          <span className="projectContentHeading">{d.name}</span>
-                          <br />
-                          <span className="contentDuration">{d.link}</span>
+                      <br /> */}
+                    <h2 className="contentHeading">OTHER INFO</h2>
+                    {this.state.otherInfo.map(d => (
+                      <div>
+                        <span className="projectContentHeading">{d.name}</span>
+                        <br />
+                        <span className="contentDuration">{d.link}</span>
 
-                          <br />
-                          <br />
-                        </div>
-                      ))}
-                    </Col>
-                  </Row>
-                  <br />
-                  <Row>
-                    <Col>
-                      <h2 className="contentHeading">PROJECT(S)</h2>
-                      {this.state.projInfo.map(d => (
-                        <div>
-                          <h3 className="subContentHeading">{d.projTitle}</h3>
-                          <span className="projectContentHeading">
-                            - Software Used
+                        <br />
+                        <br />
+                      </div>
+                    ))}
+                  </Col>
+                </Row>
+                <br />
+                <Row>
+                  <Col>
+                    <h2 className="contentHeading">PROJECT(S)</h2>
+                    {this.state.projInfo.map(d => (
+                      <div>
+                        <h3 className="subContentHeading">{d.projTitle}</h3>
+                        <span className="projectContentHeading">
+                          - Software Used
                         </span>
-                          <p>{d.software}</p>
-                          <span className="projectContentHeading">
-                            - Features
+                        <p>{d.software}</p>
+                        <span className="projectContentHeading">
+                          - Features
                         </span>
-                          <p>{d.features}</p>
-                          <span className="projectContentHeading">
-                            - Roles & Responsibilities
+                        <p>{d.features}</p>
+                        <span className="projectContentHeading">
+                          - Roles & Responsibilities
                         </span>
-                          <p>{d.responsibilities}</p>
-                          <br />
-                          <br />
-                        </div>
-                      ))}
-                    </Col>
-                  </Row>
-                </Container>
-              </div>
+                        <p>{d.responsibilities}</p>
+                        <br />
+                        <br />
+                      </div>
+                    ))}
+                  </Col>
+                </Row>
+              </Container>
             </div>
-          )}
+          </div>
+        )}
       </div>
     );
   }
 }
 
 export default ResumeHeader;
-
