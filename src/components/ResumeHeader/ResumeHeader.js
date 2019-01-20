@@ -339,6 +339,9 @@ class ResumeHeader extends Component {
                       />
                     </FormGroup>
                   </Col>
+                  <Col>
+                      <span>You can use cloudiary.com to upload and generate URL of your photo</span>
+                  </Col>
                 </Row>
                 <Row>
                   <Col xs="6">
