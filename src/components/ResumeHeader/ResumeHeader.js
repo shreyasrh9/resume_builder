@@ -18,12 +18,12 @@ import ResumePreview from "./ResumePreview.js";
 class ResumeHeader extends Component {
   state = {
     name: "Name",
-    image: "https://i.stack.imgur.com/34AD2.jpg",
-    designation: "Senior Software Engineer @ Google",
-    email: "example@example.com",
+    image: "https://previews.123rf.com/images/rmarmion/rmarmion1402/rmarmion140200019/26326734-businesswoman-working-at-her-office-by-herself.jpg",
+    designation: "Senior Software Engineer @ Practo",
+    email: "me@gmail.com",
     phone: "+919999999999",
     location: "Bengaluru",
-    totalExperience: "2 years experience",
+    totalExperience: "5 years experience",
     role: "Full-stack developer",
     random: null,
     haveExpDet: false,
