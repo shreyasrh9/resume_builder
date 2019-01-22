@@ -86,15 +86,6 @@ const resumePreview = props => {
               ))}
             </Col>
             <Col>
-              {/* <h2 className="contentHeading">CODING INTERESTS</h2>
-              <h4>Hacker Earth - An ultimate hub for programmers</h4>
-              <span className="contentDuration">
-                Have competitive percentile above 98% on HackerEarth
-              </span>
-
-              <br />
-              <br />
-              <br /> */}
               <h2 className="contentHeading">OTHER INFO</h2>
               {props.otherInfo.map(d => (
                 <div>

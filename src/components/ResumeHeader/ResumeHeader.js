@@ -18,7 +18,8 @@ import ResumePreview from "./ResumePreview.js";
 class ResumeHeader extends Component {
   state = {
     name: "Name",
-    image: "https://previews.123rf.com/images/rmarmion/rmarmion1402/rmarmion140200019/26326734-businesswoman-working-at-her-office-by-herself.jpg",
+    image:
+      "https://previews.123rf.com/images/rmarmion/rmarmion1402/rmarmion140200019/26326734-businesswoman-working-at-her-office-by-herself.jpg",
     designation: "Senior Software Engineer @ Practo",
     email: "me@gmail.com",
     phone: "+919999999999",
@@ -229,6 +230,14 @@ class ResumeHeader extends Component {
     }
   };
 
+  removeSkill = skill => {
+    var array = [...this.state.skills];
+    var index = array.indexOf(skill);
+    console.log("index: " + index);
+    array.splice(index, 1);
+    this.setState({ skills: array });
+  };
+
   renderSkills = () => {
     const chunkSize = 3;
     let a = this.state.skills.reduce(
@@ -245,12 +254,18 @@ class ResumeHeader extends Component {
       [[]]
     );
 
-    // there is some problem here while rendering
     return a.map(skill => {
       return (
         <div>
           {skill.map(i => (
-            <span className="skillContent">{i}</span>
+            <span className="skillContent">
+              {i}
+              <span>
+                {this.state.previewMode ? null : (
+                  <Button onClick={() => this.removeSkill(i)}>x</Button>
+                )}
+              </span>
+            </span>
           ))}
           <br />
           <br />
@@ -340,7 +355,10 @@ class ResumeHeader extends Component {
                     </FormGroup>
                   </Col>
                   <Col>
-                      <span>You can use cloudinary.com to upload and generate URL of your photo</span>
+                    <span>
+                      You can use cloudinary.com to upload and generate URL of
+                      your photo
+                    </span>
                   </Col>
                 </Row>
                 <Row>
@@ -824,22 +842,12 @@ class ResumeHeader extends Component {
                     ))}
                   </Col>
                   <Col>
-                    {/* <h2 className="contentHeading">CODING INTERESTS</h2>
-                      <h4>Hacker Earth - An ultimate hub for programmers</h4>
-                      <span className="contentDuration">
-                        Have competitive percentile above 98% on HackerEarth
-                    </span>
-
-                      <br />
-                      <br />
-                      <br /> */}
                     <h2 className="contentHeading">OTHER INFO</h2>
                     {this.state.otherInfo.map(d => (
                       <div>
                         <span className="projectContentHeading">{d.name}</span>
                         <br />
                         <span className="contentDuration">{d.link}</span>
-
                         <br />
                         <br />
                       </div>
