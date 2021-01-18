@@ -10,11 +10,11 @@ const resumeHeader = () => {
     return (
         <Container className="container">
             <Row>
-                <Col xs="2">
+                {/* <Col xs="2">
                     <MyPhoto source="https://res.cloudinary.com/shreyas/image/upload/v1447835724/_20150603_122529_a3k9rn.jpg" />
-                </Col>
+                </Col> */}
                 <Col>
-                    <MyWorkIntro name="Shreyas R H" position="Senior Software Engineer @ Practo" />
+                    <MyWorkIntro name="Shreyas R H" position="Technology Lead @ FoundationAI" />
                 </Col>
                 <Col>
                     <MyContactInfo email="shreyas.rh9@gmail.com" mobileNumber="+919986700691" place="Bengaluru" />
@@ -22,19 +22,23 @@ const resumeHeader = () => {
             </Row>
             <Row style={{ marginTop: '1%' }}>
                 <Col>
-                    <span>5+ years of experience as a Full Stack Developer</span>
+                    <span>7+ years of experience as a Full Stack Developer</span>
                 </Col>
             </Row>
 
             <Row style={{ marginTop: '1%' }}>
                 <Col>
                     <h2 className="contentHeading">WORK EXPERIENCE</h2>
+                    <h3 className="subContentHeading">Technology Lead</h3>
+                    <span className="contentDuration">04/2019 - Present</span><span className="contentLocation">FoundationAI</span>
+                    <br />
+                    <br />
                     <h3 className="subContentHeading">Senior Software Engineer</h3>
-                    <span className="contentDuration">02/2015 - Present</span><span className="contentLocation">Bengaluru</span>
+                    <span className="contentDuration">02/2015 - 03/2019</span><span className="contentLocation">Practo</span>
                     <br />
                     <br />
                     <h3 className="subContentHeading">Software Engineer</h3>
-                    <span className="contentDuration">03/2013 - 10/2015</span><span className="contentLocation">Bengaluru</span>
+                    <span className="contentDuration">03/2013 - 10/2015</span><span className="contentLocation">Infosys</span>
                 </Col>
                 <Col>
                     <h2 className="contentHeading">SKILLS</h2>
@@ -70,8 +74,11 @@ const resumeHeader = () => {
                     <br />
                     <span className="skillContent">Docker</span>
                     <span className="skillContent">Nginx</span>
-                    <span className="skillContent">Tomcat</span>
-                    <span className="skillContent">Solr</span>
+                    <span className="skillContent">Elasticsearch</span>
+
+                    <br />
+                    <br />
+                    <span className="skillContent">KeyCloak</span>
 
                 </Col>
             </Row>
@@ -84,6 +91,13 @@ const resumeHeader = () => {
                     <br />
                     <br />
                     <h2 className="contentHeading">EDUCATION</h2>
+                    <h3 className="subContentHeading">Post Graduate in Computer Application</h3>
+                    <h4>Annamalai University</h4>
+                    <span className="contentDuration">2019 - 2020</span><span className="contentLocation">71.83%</span>
+
+                    <br/>
+                    <br/>
+
                     <h3 className="subContentHeading">Bachelor Of Engineering</h3>
                     <h4>Global Academy Of Technology</h4>
 
@@ -123,6 +137,25 @@ const resumeHeader = () => {
             <Row>
                 <Col>
                     <h2 className="contentHeading">PROJECT(S)</h2>
+                    <br/>
+
+                    <h3 className="subContentHeading">Foundation Extract</h3>
+                    <span className="projectContentHeading">- Software Used</span><p>Python, Flask, PostgreSQL, Sentry, log4j, ReactJs, Redux observable, RESTful web-services, Data Structures & Algorithms, Nginx, Github, AWS EC2, Elasticsearch, Caching techniques, load balancing techniques</p>
+                    <span className="projectContentHeading">- Features</span><p>A cognitive data extraction platform that enables enterprises to sort and parse information from virtually any type of digital text, image, PDF files, including scanned and unstructured documents. The Foundation Extract product classifies documents by understanding the document types through OCR and extracts the relevant indexing information from the documents through text mining algorithms</p>
+                    <span className="projectContentHeading">- Roles & Responsibilities</span>
+                    <p>1. Developed wireframes for the application using Apple Sketch and retrieved the CSS properties using Zeplin</p>
+                    <p>2. Designed DB structure and application to make the application easily maintainable</p>
+                    <p>3. Designed and developed client-side components as a separate entity to call the PUT/GET/DELETE/POST services and validate using jQuery/Javascript</p>
+                    <p>4. Designed and developed the REST API which connects to DB using JPA and query using JPQL and JDBC template</p>
+                    <p>5. Performed unit testing</p>
+                    <p>6. Deployed the application on AWS and automated DB and WAR/JAR files backup</p>
+                    <p>7. Entire application development ownership (End to End)</p>
+                    <p>8. Dockerizing the entire application</p>
+                    <p>9. Optimization of the features to attain at most client satisfaction</p>
+                    <p>10. Lead a team of 5</p>
+                    <p>11. Resolving of tickets with minimal turn-around time to achieve client satisfaction</p>
+
+
                     <h3 className="subContentHeading">QUERENT BI</h3>
                     <span className="projectContentHeading">- Software Used</span><p>Java/J2EE 1.8, Spring Boot, MySQL, OpenID, Sentry, log4j, ReactJs, Ajax, CSS, Bootstrap, Data Structures & Algorithms, Maven, Tomcat 8, Github</p>
                     <span className="projectContentHeading">- Features</span><p>Platform to access Tableau Dashboards based on user mappings</p>
